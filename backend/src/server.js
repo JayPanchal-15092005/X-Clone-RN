@@ -19,7 +19,7 @@ app.use(arcjetMiddleware);
 // app.set("trust proxy", true);
 
 app.get("/", (req, res) => {
-  res.send("Hello from server");
+  res.send("This Twitter Mobile App Api is up and running");
 });
 
 app.use("/api/users", userRoutes);
