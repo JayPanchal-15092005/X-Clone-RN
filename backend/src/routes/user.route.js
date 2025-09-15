@@ -9,7 +9,7 @@ router.get("/profile/:username", getUserProfile);
 
 // Protected routes
 router.post("/sync", protectRoute, syncUser);
-router.post("/me", protectRoute, getCurrentUser);
+router.get("/me", protectRoute, getCurrentUser); // i changed the request POST to GET because there is some error is come in the post s i changed it to get if the error is come go change the request to the POST(Diffult States).
 router.put("/profile", protectRoute, updateProfile);
 router.post("/follow/:targetUserId", protectRoute, followUser);
 
