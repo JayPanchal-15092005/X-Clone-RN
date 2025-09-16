@@ -44,7 +44,7 @@ const PostsList = ({ username }: { username?: string }) => {
         </TouchableOpacity>
       </View>
     );
-  }
+  } // Error
 
   if (posts.length === 0) {
     return (

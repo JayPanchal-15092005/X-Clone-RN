@@ -60,7 +60,7 @@ export const getUserPosts = asyncHandler(async (req, res) => {
 });
 
 export const createPost = asyncHandler(async (req, res) => {
-  const { userId } = getAuth(req);
+  const { userId } = getAuth(req); 
   const { content } = req.body;
   const imageFile = req.file;
 

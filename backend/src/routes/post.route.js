@@ -19,6 +19,7 @@ router.get("/user/username", getUserPosts);
 
 // Protected routes
 router.post("/", protectRoute, upload.single("image"), createPost);
+// router.post("/", upload.single("image"), createPost);
 router.post("/postId/like", protectRoute, likePost);
 router.delete("/postId", protectRoute, deletePost);
 

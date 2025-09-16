@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Alert } from "react-native";
-import { useApiClient } from "../utils/api";
 import * as ImagePicker from "expo-image-picker";
+import { useApiClient } from "../utils/api";
 
-export const userCreatePost = () => {
+export const useCreatePost = () => {
   const [content, setContent] = useState("");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const api = useApiClient();
@@ -24,6 +24,7 @@ export const userCreatePost = () => {
           png: "image/png",
           gif: "image/gif",
           webp: "image/webp",
+          jpg: "image/jpg",
         };
         const mimeType = mimeTypeMap[fileType] || "image/jpeg";
 
@@ -42,7 +43,7 @@ export const userCreatePost = () => {
       setContent("");
       setSelectedImage(null);
       queryClient.invalidateQueries({ queryKey: ["posts"] });
-      Alert.alert("Success", "Post Created Successfully!");
+      Alert.alert("Success", "Post created successfully!");
     },
     onError: () => {
       Alert.alert("Error", "Failed to create post. Please try again.");
@@ -88,11 +89,11 @@ export const userCreatePost = () => {
       return;
     }
 
-    const postData: { content: string; imageUrl?: string } = {
+    const postData: { content: string; imageUri?: string } = {
       content: content.trim(),
     };
 
-    if (selectedImage) postData.imageUrl = selectedImage;
+    if (selectedImage) postData.imageUri = selectedImage;
 
     createPostMutation.mutate(postData);
   };

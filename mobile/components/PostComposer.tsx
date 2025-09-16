@@ -1,4 +1,4 @@
-import { userCreatePost } from "@/hooks/useCreatePost";
+import { useCreatePost } from "@/hooks/useCreatePost";
 import { useUser } from "@clerk/clerk-expo";
 import { Feather } from "@expo/vector-icons";
 import { View, Text, Image, TouchableOpacity, TextInput, ActivityIndicator } from "react-native";
@@ -13,7 +13,7 @@ const PostComposer = () => {
         takePhoto,
         removeImage,
         createPost,
-    } = userCreatePost();
+    } = useCreatePost();
 
     const { user } = useUser();
 

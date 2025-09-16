@@ -8,7 +8,8 @@ const TabsLayout = () => {
 
   const { isSignedIn } = useAuth();
 
-  if (!isSignedIn) return <Redirect href={"/(auth)" as any} />
+  // if (!isSignedIn) return <Redirect href={"/(auth)" as any} />
+    if (!isSignedIn) return <Redirect href="/(auth)" />;
 
   return (
     <Tabs
@@ -41,7 +42,7 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="notifications"
+        name="notification"
         options={{
           title: "",
 
